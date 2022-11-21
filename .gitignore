@@ -15,6 +15,7 @@
 *.so
 *.dylib
 *.dll
+bulid/
 
 # Fortran module files
 *.mod
@@ -30,3 +31,18 @@
 *.exe
 *.out
 *.app
+
+# for Mac OS X System Files
+.DS_Store
+*/.DS_Store
+*.dSYM
+.vscode/
+./git
+Thumbs.db
+
+# Cmake
+CMakeFiles
+CMakeCache.txt
+*.cmake
+*.make
+Makefile
