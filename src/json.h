@@ -21,7 +21,6 @@ private:
         std::map<std::string, Json> *m_object;
     };
     
-    
 public:
     enum Type
     {
@@ -42,6 +41,17 @@ public:
     Json(const std::string & value);
     Json(Type type);
     Json(const Json & other);
+
+    // operator overloading
+    operator bool();
+    operator int();
+    operator double();
+    operator std::string();
+
+    Json &operator [](int index);
+    void append(const Json & other);
+
+    std::string str() const;
 
 private:
     Type m_type;
