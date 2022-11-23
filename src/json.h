@@ -51,7 +51,22 @@ public:
     Json &operator [](int index);
     void append(const Json & other);
 
+    /// @brief C object overloading
+    /// @param key 
+    /// @return 
+    Json &operator [](const char *key);
+    /// @brief C++ object overloading
+    /// @param key 
+    /// @return 
+    Json &operator [](const std::string &key);
+
+    void operator = (const Json &other);
+
     std::string str() const;
+
+    void PublicCopy(const Json &other);
+    /// @brief dynamic memory release
+    void clear();
 
 private:
     Type m_type;

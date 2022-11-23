@@ -26,19 +26,27 @@ int main()
     // double f = v4;
     // const std::string &s = v5;
 
-    Json arr;
-    arr[0] = true;
-    arr[1] = 123;
+    // Json arr;
+    // arr[0] = true;
+    // arr[1] = 123;
 
-    arr.append(1.23);
-    arr.append("hello word");
+    // arr.append(1.23);
+    // arr.append("hello word");
 
-    bool b = arr[0];
-    int i = arr[1];
-    double f = arr[2];
-    const std::string &s = arr[3];
+    // bool b = arr[0];
+    // int i = arr[1];
+    // double f = arr[2];
+    // const std::string &s = arr[3];
 
-    std::cout << arr.str() << std::endl;
+    // std::cout << arr.str() << std::endl;
+
+    Json object;
+    object["bool"] = true;
+    object["int"] = 123;
+    object["double"] = 1.23;
+    object["string"] = "hello word";
+
+    std::cout << object.str() << std::endl;
 
     return 0;
 }
