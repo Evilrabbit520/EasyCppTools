@@ -46,6 +46,10 @@ int main()
     object["double"] = 1.23;
     object["string"] = "hello word";
 
+    //std::cout << object.has("string") << std::endl;
+    // std::cout << arr.has(3) << std::endl;
+
+    //object.remove("string");
     std::cout << object.str() << std::endl;
 
     return 0;

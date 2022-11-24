@@ -61,12 +61,69 @@ public:
     Json &operator [](const std::string &key);
 
     void operator = (const Json &other);
+    bool operator == (const Json &other);
+    bool operator != (const Json &other);
 
     std::string str() const;
 
     void PublicCopy(const Json &other);
     /// @brief dynamic memory release
     void clear();
+
+    // array traversal
+    typedef std::vector<Json>::iterator iterator;
+    iterator begin()
+    {
+        return m_value.m_array->begin();
+    }
+    iterator end()
+    {
+        return m_value.m_array->end();
+    }
+
+    bool isNull() const
+    {
+        return m_type == json_null;
+    }
+    bool isBool() const
+    {
+        return m_type == json_bool;
+    }
+    bool isInt() const
+    {
+        return m_type == json_int;
+    }
+    bool isDouble() const
+    {
+        return m_type == json_double;
+    }
+    bool isString() const
+    {
+        return m_type == json_string;
+    }
+    bool isArray() const
+    {
+        return m_type == json_array;
+    }
+    bool isObject() const
+    {
+        return m_type == json_object;
+    }
+
+    // type conversion
+    bool asBool() const;
+    int asInt() const;
+    double asDouble() const;
+    std::string asString() const;
+
+    //determine array index
+    bool has(int index);
+    bool has(const char *key);
+    bool has(const std::string &key);
+
+    void remove(int index);
+    void remove(const char *key);
+    void remove(const std::string &key);
 
 private:
     Type m_type;

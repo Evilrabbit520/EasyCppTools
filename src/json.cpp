@@ -145,6 +145,41 @@ void Json::operator = (const Json &other)
     PublicCopy(other);
 }
 
+bool Json::operator == (const Json &other)
+{
+    if(m_type != other.m_type)
+    {
+        return false;
+    }
+    else
+    {
+        switch (m_type)
+        {
+        case json_null:
+            return true;
+        case json_bool:
+            return m_value.m_bool == other.m_value.m_bool;
+        case json_int:
+            return m_value.m_int == other.m_value.m_int;
+        case json_double:
+            return m_value.m_double == other.m_value.m_double;
+        case json_string:
+            return *(m_value.m_string) == *(other.m_value.m_string);
+        case json_array:
+            return m_value.m_array == other.m_value.m_array;
+        case json_object:
+            return m_value.m_object == other.m_value.m_object;
+        default:
+            break;
+        }
+        return false;
+    }
+}
+bool Json::operator != (const Json &other)
+{
+    return !((*this) == other);
+}
+
 void Json::PublicCopy(const Json &other)
 {
     clear();
@@ -267,4 +302,85 @@ std::string Json::str() const
         break;
     }
     return ss.str();
+}
+
+bool Json::asBool() const
+{
+    if(m_type != json_bool)
+    {
+        throw new std:: logic_error("type error, not bool value");
+    }
+    return m_value.m_bool;
+}
+int Json::asInt() const
+{
+    if(m_type != json_int)
+    {
+        throw new std:: logic_error("type error, not int value");
+    }
+    return m_value.m_int;
+}
+double Json::asDouble() const
+{
+    if(m_type != json_double)
+    {
+        throw new std:: logic_error("type error, not double value");
+    }
+    return m_value.m_double;
+}
+std::string Json::asString() const
+{
+    if(m_type != json_string)
+    {
+        throw new std:: logic_error("type error, not string value");
+    }
+    return *(m_value.m_string);
+}
+
+bool Json::has(int index)
+{
+    if(m_type != json_array)
+    {
+        return false;
+    }
+    int size = (m_value.m_array)->size();
+    return (index >= 0 && index < size);
+}
+bool Json::has(const char *key)
+{
+    std::string name(key);
+    return has(name);
+}
+bool Json::has(const std::string &key)
+{
+    if(m_type != json_object)
+    {
+        return false;
+    }
+    return ((m_value.m_object)->find(key) != (m_value.m_object)->end());
+}
+
+void Json::remove(int index)
+{
+    if(m_type != json_array)
+        return;
+    int size = m_value.m_array->size();
+    if(index < 0 || index >= size)
+        return;
+    (m_value.m_array)->at(index).clear();
+    (m_value.m_array)->erase(m_value.m_array->begin() + index);
+}
+void Json::remove(const char *key)
+{
+    std::string name(key);
+    remove(name);
+}
+void Json::remove(const std::string &key)
+{
+    auto it = m_value.m_object->find(key);
+    if(it == m_value.m_object->end())
+        return;
+    (*(m_value.m_object))[key].clear();
+    (m_value.m_object)->erase(key);
+
 }
