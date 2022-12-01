@@ -40,17 +40,22 @@ int main()
 
     // std::cout << arr.str() << std::endl;
 
-    Json object;
-    object["bool"] = true;
-    object["int"] = 123;
-    object["double"] = 1.23;
-    object["string"] = "hello word";
+    // Json object;
+    // object["bool"] = true;
+    // object["int"] = 123;
+    // object["double"] = 1.23;
+    // object["string"] = "hello word";
 
     //std::cout << object.has("string") << std::endl;
     // std::cout << arr.has(3) << std::endl;
 
     //object.remove("string");
-    std::cout << object.str() << std::endl;
+    // std::cout << object.str() << std::endl;
+    // object.clear();
+
+    const std::string & str = "[1, 2, 3]";
+    Json v;
+    v.parse(str);
 
     return 0;
 }

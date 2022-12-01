@@ -125,6 +125,8 @@ public:
     void remove(const char *key);
     void remove(const std::string &key);
 
+    void parse(const std::string & str);
+
 private:
     Type m_type;
     Value m_value;
