@@ -53,7 +53,7 @@ int main()
     // std::cout << object.str() << std::endl;
     // object.clear();
 
-    const std::string & str = "[1, 2, 3]";
+    const std::string & str = "123";
     Json v;
     v.parse(str);
 

@@ -47,6 +47,7 @@ Json Parser::parse()
     case '7':
     case '8':
     case '9':
+        m_idx--;
         return parse_number();
     case '"':
         return Json(pares_string());
