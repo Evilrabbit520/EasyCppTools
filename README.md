@@ -10,8 +10,18 @@ EasyCppTools, as the name suggests, is a simple C++ toolset, which plans to incl
 | :---: | :---: | :--- |
 | Array output | Complete | NULL |
 | Object output | Complete | NULL |
-| Parser | Has not started | NULL |
+| Json Parser | Complete | Complete file test. |
 | Encryption | Has not started | NULL |
 | Decrypt | Cancel | Certain encryption methods are not suitable for decryption. |
 | - | Intend | NULL |
 | - | Intend | NULL |
+
+| 功能 | 状态 | 备注 |
+| :---: | :---: | :--- |
+| 数组输出 | 完成 | 无 |
+| 对象输出 | 完成 | 无 |
+| Json 解析器 | 完成 | 完成文件测试。 |
+| 加密 | 未开始 | 无 |
+| 解密 | 取消 | 部分加密方法不适合解密。 |
+| - | 计划 | 无 |
+| - | 计划 | 无 |
