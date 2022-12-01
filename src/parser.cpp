@@ -197,5 +197,38 @@ Json Parser::pares_array()
 }
 Json Parser::pares_object()
 {
-    return Json();
+    Json obj(Json::json_object);
+    char ch = get_next_token();
+    if(ch == '}')
+    {
+        return obj;
+    }
+    m_idx--;
+    while (true)
+    {
+        ch = get_next_token();
+        if(ch != '"')
+        {
+            throw new std:: logic_error("parse object error");
+        }
+        std::string key = pares_string();
+        ch = get_next_token();
+        if(ch != ':')
+        {
+            throw new std:: logic_error("parse object error");
+        }
+        obj[key] = parse();
+        ch = get_next_token();
+        if(ch == '}')
+        {
+            break;
+        }
+        if(ch != ',')
+        {
+            throw new std:: logic_error("parse object error");
+        }
+        m_idx++;
+    }
+    
+    return obj;
 }

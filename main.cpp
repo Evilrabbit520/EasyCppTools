@@ -10,6 +10,8 @@
  */
 #include <iostream>
 #include "src/json.h"
+#include <fstream>
+#include <sstream>
 
 using namespace ECT::json;
 
@@ -53,9 +55,17 @@ int main()
     // std::cout << object.str() << std::endl;
     // object.clear();
 
-    const std::string & str = "123";
+    std::ifstream file("./test/test.json");
+    std::stringstream ss;
+    ss << file.rdbuf();
+    const std::string &str = ss.str();
+
     Json v;
     v.parse(str);
+
+    std::string name = v["data"]["name"];
+
+    std::cout << name << std::endl;
 
     return 0;
 }
