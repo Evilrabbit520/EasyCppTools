@@ -65,6 +65,7 @@ Json Parser::parse_null()
 {
     if(m_str.compare(m_idx, 4, "null") == 0)
     {
+        m_idx += 4;
         return Json();
     }
     throw new std::logic_error("paser 'null' error");
@@ -73,10 +74,12 @@ Json Parser::parse_bool()
 {
     if(m_str.compare(m_idx, 4, "true") == 0)
     {
+        m_idx += 4;
         return Json(true);
     }
     else if (m_str.compare(m_idx, 5, "false") == 0)
     {
+        m_idx += 5;
         return Json(false);
     }
     throw new std::logic_error("paser bool error");
@@ -184,7 +187,7 @@ Json Parser::pares_array()
         {
             break;
         }
-        if(ch == ',')
+        if(ch != ',')
         {
             throw new std::logic_error("pares array error");
         }
