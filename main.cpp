@@ -60,7 +60,7 @@ int main()
     ss << file.rdbuf();
     const std::string &str = ss.str();
 
-    Json v;
+    Json v;   
     v.parse(str);
 
     std::string name = v["data"]["name"];
