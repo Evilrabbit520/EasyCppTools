@@ -1,5 +1,6 @@
 #include "parser.h"
 
+
 using namespace ECT::json;
 
 
@@ -16,7 +17,9 @@ void Parser::load(const std::string &str)
 void Parser::skip_white_space()
 {
     while(m_str[m_idx] == ' ' || m_str[m_idx] == '\n' || m_str[m_idx] == '\r' || m_str[m_idx] == '\t')
+    {
         m_idx++;
+    }
 }
 
 char Parser::get_next_token()
@@ -229,6 +232,5 @@ Json Parser::pares_object()
         }
         m_idx++;
     }
-    
     return obj;
 }

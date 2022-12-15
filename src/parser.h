@@ -1,3 +1,14 @@
+/**
+ * @file parser.h
+ * @author Evilrabbit (evilrabbit520@gmail.com)
+ * @brief json parser
+ * @version 1.0.0
+ * @date 2022-11-21
+ * 
+ * @copyright Copyright (c) 2021-2022 Evilrabbit. All rights reserved.
+ * 
+ */
+
 #ifndef EASYCPPTOOLS_SRC_PARSER_H__
 #define EASYCPPTOOLS_SRC_PARSER_H__
 
