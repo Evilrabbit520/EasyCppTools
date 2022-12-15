@@ -12,8 +12,10 @@
 #include "src/json.h"
 #include <fstream>
 #include <sstream>
+#include "src/md5.h"
 
 using namespace ECT::json;
+using namespace Hash;
 
 int main()
 {
@@ -66,6 +68,10 @@ int main()
     std::string name = v["data"]["name"];
 
     std::cout << name << std::endl;
+
+    MD5 md5 = MD5(name); 
+    std::cout << md5.hexdigest() << std::endl;
+
 
     return 0;
 }

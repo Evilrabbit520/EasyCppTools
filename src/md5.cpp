@@ -1,14 +1,3 @@
-/**
- * @file md5.cpp
- * @author Evilrabbit (evilrabbit520@gmail.com)
- * @brief md5 source file implementation.
- * @version 1.0.1
- * @date 2021-12-29
- * 
- * @copyright Copyright (c) 2021-2022 Evilrabbit. All rights reserved.
- * 
- */
-
 #include "md5.h"
 #include <stdio.h>
 
@@ -73,13 +62,11 @@ inline void MD5::II(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4
 	a = rotate_left(a + I(b, c, d) + x + ac, s) + b;
 }
 
-
 // default ctor, just initailize
 MD5::MD5()
 {
 	init();
 }
-
 
 // nifty shortcut ctor, compute MD5 for string and finalize it right away
 MD5::MD5(const std::string& text)
@@ -104,7 +91,6 @@ void MD5::init()
 	state[3] = 0x10325476;
 }
 
-
 // decodes input (unsigned char) into output (uint4). Assumes len is a multiple of 4.
 void MD5::decode(uint4 output[], const uint1 input[], size_type len)
 {
@@ -112,7 +98,6 @@ void MD5::decode(uint4 output[], const uint1 input[], size_type len)
 		output[i] = ((uint4)input[j]) | (((uint4)input[j + 1]) << 8) |
 		(((uint4)input[j + 2]) << 16) | (((uint4)input[j + 3]) << 24);
 }
-
 
 // encodes input (uint4) into output (unsigned char). Assumes len is
 // a multiple of 4.
@@ -125,7 +110,6 @@ void MD5::encode(uint1 output[], const uint4 input[], size_type len)
 		output[j + 3] = (input[i] >> 24) & 0xff;
 	}
 }
-
 
 // apply MD5 algo on a block
 void MD5::transform(const uint1 block[blocksize])
@@ -214,7 +198,6 @@ void MD5::transform(const uint1 block[blocksize])
 	memset(x, 0, sizeof x);
 }
 
-
 // MD5 block update operation. Continues an MD5 message-digest
 // operation, processing another message block
 void MD5::update(const unsigned char input[], size_type length)
@@ -252,13 +235,11 @@ void MD5::update(const unsigned char input[], size_type length)
 	memcpy(&buffer[index], &input[i], length - i);
 }
 
-
 // for convenience provide a verson with signed char
 void MD5::update(const char input[], size_type length)
 {
 	update((const unsigned char*)input, length);
 }
-
 
 // MD5 finalization. Ends an MD5 message-digest operation, writing the
 // the message digest and zeroizing the context.
@@ -311,47 +292,35 @@ std::string MD5::hexdigest() const
 	return std::string(buf);
 }
 
-
-std::ostream& operator<<(std::ostream& out, MD5 md5)
+std::string MD5::hexdigest(std::string style) const
 {
-	return out << md5.hexdigest();
-}
+	if (!finalized)
+		return "";
 
+	char buf[33];
+	for (int i = 0; i < 16; i++)
+		sprintf(buf + i * 2, "%02x", digest[i]);
+	buf[32] = 0;
 
-std::string UntreatedMd5(const std::string str)
-{
-	MD5 md5 = MD5(str);
+	if("upper" != style && "u" != style && "lower" != style && "l" != style)
+		return std::string(buf);
 
-	return md5.hexdigest();
-}
-
-
-std::string md5(const std::string str, const std::string style)
-{
 	std::string res;
-	if("upper" == style)
+	if("upper" == style || "u" == style)
 	{
-		for(int i = 0; i < UntreatedMd5(str).size(); i++)
+		for(int i = 0; i < std::string(buf).size(); i++)
 		{
-			res.push_back(toupper(UntreatedMd5(str)[i]));
+			res.push_back(toupper(std::string(buf)[i]));
 		}
 	}
-	else if ("lower" == style)
+	else if ("lower" == style || "l" == style)
 	{
-		for(int i = 0; i < UntreatedMd5(str).size(); i++)
+		for(int i = 0; i < std::string(buf).size(); i++)
 		{
-			res.push_back(UntreatedMd5(str)[i]);
+			res.push_back(std::string(buf)[i]);
 		}
 	}
-	else
-	{
-		for(int i = 0; i < UntreatedMd5(str).size(); i++)
-		{
-			res.push_back(UntreatedMd5(str)[i]);
-		}
-	}
-	
 	return res;
 }
-	
+
 } // namespace Hash

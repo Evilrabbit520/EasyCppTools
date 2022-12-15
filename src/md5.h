@@ -2,15 +2,15 @@
  * @file md5.h
  * @author Evilrabbit (evilrabbit520@gmail.com)
  * @brief md5 header file definition.
- * @version 1.0.1
- * @date 2021-12-29
+ * @version 1.1.2
+ * @date 2022-12-15
  * 
  * @copyright Copyright (c) 2021-2022 Evilrabbit. All rights reserved.
  * 
  */
 
-#ifndef OPENETI_INCLUDE_MD5_H__
-#define OPENETI_INCLUDE_MD5_H__
+#ifndef EASYCPPTOOLS_SRC_MD5_H__
+#define EASYCPPTOOLS_SRC_MD5_H__
 
 #include <cstring>
 #include <iostream>
@@ -32,8 +32,10 @@ public:
 	void update(const unsigned char* buf, size_type length);
 	void update(const char* buf, size_type length);
 	MD5& finalize();
+
+	//return hex representation of digest as string, 无参默认小写, upper(u)大写, lower(l)小写
 	std::string hexdigest() const;
-	friend std::ostream& operator<<(std::ostream&, MD5 md5);
+	std::string hexdigest(std::string style) const;
 
 private:
 	void init();
@@ -62,16 +64,10 @@ private:
 	static inline void HH(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac);
 	static inline void II(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac);
 };
-
-std::string UntreatedMd5(const std::string str);
-
-//md5的字符串，upper大写，lower小写
-std::string md5(const std::string str, const std::string style);
-
 } // namespace Hash
 
 #ifdef __cplusplus
 } //extern "C"
 #endif
 
-#endif //OPENETI_INCLUDE_MAIN_H__
+#endif // EASYCPPTOOLS_SRC_MD5_H__
