@@ -15,7 +15,7 @@ EasyCppTools, as the name suggests, is a simple C++ toolset, which plans to incl
 | Json Parser | Complete | Complete file test. |
 | Encryption | in progress | NULL |
 | Decrypt | Cancel | Certain encryption methods are not suitable for decryption. |
-| - | Intend | NULL |
+| Advanced data sorting | Planning (long term) | Data processing |
 | - | Intend | NULL |
 
 ## HowTo

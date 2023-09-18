@@ -1,0 +1,41 @@
+Date : 2022-12-24 00:00:44
+Directory : /Users/evil/Project/
+Total : 11 files,  1112 codes, 131 comments, 160 blanks, all 1403 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |          8 |      1,054 |        131 |        143 |      1,328 |
+| Markdown |          2 |         43 |          0 |         17 |         60 |
+| JSON     |          1 |         15 |          0 |          0 |         15 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                    | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                       |         11 |      1,112 |        131 |        160 |      1,403 |
+| EasyCppTools                                            |         11 |      1,112 |        131 |        160 |      1,403 |
+| EasyCppTools/include                                    |          1 |          8 |         10 |          4 |         22 |
+| EasyCppTools/src                                        |          6 |      1,025 |         82 |        122 |      1,229 |
+| EasyCppTools/test                                       |          1 |         15 |          0 |          0 |         15 |
++---------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                | language | code       | comment    | blank      | total      |
++---------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/evil/Project/EasyCppTools/README.md              | Markdown |         22 |          0 |          9 |         31 |
+| /Users/evil/Project/EasyCppTools/README_CN.md           | Markdown |         21 |          0 |          8 |         29 |
+| /Users/evil/Project/EasyCppTools/include/easycpptools.h | C++      |          8 |         10 |          4 |         22 |
+| /Users/evil/Project/EasyCppTools/main.cpp               | C++      |         21 |         39 |         17 |         77 |
+| /Users/evil/Project/EasyCppTools/src/json.cpp           | C++      |        377 |          0 |         17 |        394 |
+| /Users/evil/Project/EasyCppTools/src/json.h             | C++      |        106 |         21 |         22 |        149 |
+| /Users/evil/Project/EasyCppTools/src/md5.cpp            | C++      |        239 |         35 |         52 |        326 |
+| /Users/evil/Project/EasyCppTools/src/md5.h              | C++      |         48 |         12 |         14 |         74 |
+| /Users/evil/Project/EasyCppTools/src/parser.cpp         | C++      |        227 |          0 |          9 |        236 |
+| /Users/evil/Project/EasyCppTools/src/parser.h           | C++      |         28 |         14 |          8 |         50 |
+| /Users/evil/Project/EasyCppTools/test/test.json         | JSON     |         15 |          0 |          0 |         15 |
+| Total                                                   |          |      1,112 |        131 |        160 |      1,403 |
++---------------------------------------------------------+----------+------------+------------+------------+------------+
