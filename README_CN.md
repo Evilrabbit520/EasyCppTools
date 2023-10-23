@@ -24,6 +24,8 @@ mkdir -p build && cd build
 cmake .. && make
 ```
 
+修改了生成方案，从动态库文件到可执行文件。
+
 ## 开源许可
 
 [Apache License 2.0](LICENSE)

@@ -25,6 +25,7 @@ cd <EasyCppTools_root_dir>
 mkdir -p build && cd build
 cmake .. && make
 ```
+Modified the generation scheme from dynamic library files to executable files.
 
 ## License
 
