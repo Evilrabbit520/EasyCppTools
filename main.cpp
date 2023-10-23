@@ -13,6 +13,7 @@
 #include <fstream>
 #include <sstream>
 #include "src/md5.h"
+#include "src/dataSorting.hpp"
 
 using namespace ECT::json;
 using namespace Hash;
@@ -57,20 +58,25 @@ int main()
     // std::cout << object.str() << std::endl;
     // object.clear();
 
-    std::ifstream file("./test/test.json");
-    std::stringstream ss;
-    ss << file.rdbuf();
-    const std::string &str = ss.str();
+    // std::ifstream file("./test/test.json");
+    // std::stringstream ss;
+    // ss << file.rdbuf();
+    // const std::string &str = ss.str();
 
-    Json v;   
-    v.parse(str);
+    // Json v;   
+    // v.parse(str);
 
-    std::string name = v["data"]["name"];
+    // std::string name = v["data"]["name"];
 
-    std::cout << name << std::endl;
+    // std::cout << name << std::endl;
 
-    MD5 md5 = MD5(name); 
-    std::cout << md5.hexdigest() << std::endl;
+    // MD5 md5 = MD5(name); 
+    // std::cout << md5.hexdigest() << std::endl;
+
+    std::vector<int> vec1 = {1, 2, 3, 9, 7, 4, 5};
+    ECT::Sorting sort;
+    // sort.bubbleSort(vec1);
+    sort.selectSort(vec1);
 
 
     return 0;

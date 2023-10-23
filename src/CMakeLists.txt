@@ -10,4 +10,6 @@ aux_source_directory(../ MAIN)
 
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
-add_library(EasyCppTools SHARED ${SRC} ${MAIN})
+# add_library(EasyCppTools SHARED ${SRC} ${MAIN})   # 生成动态库文件
+
+add_executable(${PROJECT_NAME} ${SRC} ${MAIN}) # 生成可执行文件
